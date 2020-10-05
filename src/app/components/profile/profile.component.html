@@ -1,0 +1,67 @@
+
+ <div class="container mt-3 border border-success">
+   <div class="row">
+     <div class="col">
+         <div class="card-header bg-dark text-white">
+           <h4>Github user search</h4>
+         </div>
+         <div class="card-body">
+           <form (submit)="searchUser()">
+             <div class="form-group">
+               <input [(ngModel)]='profile' name='profile'  type="search" class="form-control" placeholder="github user">
+             </div>
+             <button class="btn btn-primary" value="Search" type="submit">Search</button>
+           </form>
+         </div>
+       
+     </div>
+   </div>
+   <div class="row">
+     <div class="col-6-lg mt-5">
+       <div class="card"></div>
+       <!-- <p>{{user.avatar_url}}</p> -->
+       <img src="{{user.avatar_url}}" alt="card image" class="card-img-top">
+      </div>
+       <div class="col-6-lg mt-5">
+        <div class="card-body mx-10">
+          <p class="card-text">Name  - {{user.name}}</p>
+          <p class="card-text">Github Username - {{user.login}}</p>
+          <p class="card-text"> Location - {{user.location}}</p>
+          <p class="card-text"> Member since - {{user.created_at}}</p>
+          <p class="card-text"> Profile url  - {{user.url}}</p>
+
+          <div class="stats">
+            <span class="btn btn-danger btn-sm ml-2"> {{user.followers}}</span>
+            <span class="btn btn-primary btn-sm ml-2"> {{user.following}} Following</span>
+            <span class="btn btn-success btn-sm ml-2">{{user.public_repos}} Public Repos</span>
+            <span class="btn btn-warning btn-sm ml-2">{{user.public_gists}} Public Gists</span>
+        </div>
+          <!-- <p>{{user | json }}</p> -->
+         </div>
+       </div>
+   </div>
+   <br>
+   <br>
+<hr>
+ <div class="container">
+   <div class="card">
+     <div class="card-header bg-dark text-white">
+      <h4 class="mt-10">Github Repositories</h4>
+       <div class="card-body">
+         <div class="list-group">
+           <li *ngFor="let repo of repo" class="list-group-item d-flex justify-content-between ">
+             <p class="text-dark">{{repo.name}}</p>
+             <p class="text-dark">{{repo.created_at}}</p>
+             <!-- <p>{{repo.created_at}}</p> -->
+               <!-- <a href="#" class="text-primary" target="_blank">{{repo.name}}</a>
+               <span class="badge badge-success">{{repo.created_at}}</span> -->
+               <!-- <span class="badge badge-warning">stars</span> -->
+           </li>
+         </div>
+       </div>
+     </div>
+   </div>
+  </div>
+
+
+
